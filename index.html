@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B2W6L2 - Gebruikers input verwerken</title>
+	<style>
+		p {
+			font-size: 21px;
+		}
+	</style>
+</head>
+<body>
+	<h2>De ingevoerde namen in de array zijn:</h2>
+	<p id="names"></p>
+	<h2>De ingevoerde namen in de array in omgekeerde volgorde zijn:</h2>
+	<p id="namesTurned"></p>
+	<script>
+		var names = document.getElementById("names");
+		var namesTurned = document.getElementById("namesTurned");
+
+		nameList = [];
+
+		var loop = true;
+		while (loop == true) {
+			amountNames = prompt("Hoeveel namen wilt u in de array stoppen? (minimaal 3)");
+			if (amountNames < 3 || isNaN(amountNames)) {
+				alert("Ongeldige invoer");
+			}
+			else {
+				loop = false;
+			}
+		}
+		for(i=0; i<amountNames; i++) {
+			nameList[i] = prompt("Naam " + (i+1));
+			names.innerHTML += nameList[i] + "<br>"
+		}
+		for(i=amountNames-1; i>=0; i--) {
+			namesTurned.innerHTML += nameList[i] + "<br>"
+		}
+	</script>
+</body>
+</html>
